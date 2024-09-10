@@ -22,8 +22,6 @@ alias lsn="exa -lbhF --icons --sort=.name"
 alias l="exa -1 --icons --only-dirs"
 #Alias for 'exa' command:long format list with icons and headers
 alias ll="exa --long --header --icons"
-#Alias for 'exa' command:long list, sorted by modification date
-#alias llm="exa -lbGd --header --sort=modified"
 #Alias for 'exa' command:detailed list with all files, icons, and color
 alias la="exa -alh --time-style=long-iso --color-scale --icons"
 # Tree view of directory structure
