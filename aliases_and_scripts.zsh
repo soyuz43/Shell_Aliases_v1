@@ -332,14 +332,6 @@ alias tresize='tmux resize-pane'
 # * --------------------
 # ? File Management Scripts
 # * --------------------
-# Navigate to a directory selected via fuzzy search
-# ffcd() {
-#   local dir
-#   dir=$(find /home/copin43/personal/Utilities/{MyBashScripts,personal,vaults,workspace} -type d ! -path '*/.*' 2>/dev/null | fzf)
-#   if [[ -n $dir ]]; then
-#     cd "$dir"
-#   fi
-# }
 
 
 #<|!|>#
@@ -444,7 +436,7 @@ find_alias() {
     # Combine and sort the alias definitions from the sources
     combined_aliases=$( { 
         pre_color_filter ~/.zshrc "$1";
-        pre_color_filter /home/copin43/personal/Utilities/MyBashScripts/my_aliases_and_scripts.zsh "$1";
+        pre_color_filter /home/copin43/personal/Utilities/MyBashScripts/aliases_and_scripts.zsh "$1";
     } | sort )
     # Apply color after filtering
     echo "\n$combined_aliases" | apply_color
@@ -455,39 +447,3 @@ alias fa="find_alias"
 # --------------------------------------------------
 #<|!|>#
 
-nav() {
-  # Initialize directory stack file if not already done
-  [ -z "$NAVDIR" ] && NAVDIR=~/.navdirs
-  touch "$NAVDIR"
-
-  case "$1" in
-    # Existing cases for +, -, ls, clear
-
-    -d|--default-cmds) # Set default commands for directory
-        shift
-        if [ -n "$1" ]; then
-          echo "$2" > "$NAVDIR/$1.defaultcmds"
-        else
-          echo "Usage: nav -d /path/to/directory <<EOF"
-        fi
-        ;;
-    -t|--trigger-cmds) # Set commands to execute next time
-        shift
-        if [ -n "$1" ]; then
-          echo "$2" > "$NAVDIR/$1.triggercmds"
-        else
-          echo "Usage: nav -t /path/to/directory"
-        fi
-        ;;
-    -q|--quick) # Quick navigation
-        shift
-        if [ -n "$1" ]; then
-          # Logic for quick navigation
-          # Example: Use 'q' to go back, 'e' to go forward, 'enter' to open
-        fi
-        ;;
-    *)  # Default action
-        pushd "$1" > /dev/null
-        ;;
-  esac
-}
