@@ -279,11 +279,11 @@ alias rserve15="while true; do npm run dev & PID=\$!; echo 'Started npm with PID
 # ? Python Specific
 # * --------------------
 # Sets the default Python interpreter path
-alias python="/usr/bin/python3"
+# alias python="/usr/bin/python3"
 # Runs a specific Docker container for a Python environment
-alias dolph="ollama run tinydolphin:1.1b-v2.8-fp16"
+# alias dolph="ollama run tinydolphin:1.1b-v2.8-fp16"
 # Shorten python to 'pyth' when invoking files
-alias pyth="python"
+# alias pyth="python"
 #<|!|>#
 # * --------------------
 # ? Tmux
