@@ -436,7 +436,7 @@ find_alias() {
     # Combine and sort the alias definitions from the sources
     combined_aliases=$( { 
         pre_color_filter ~/.zshrc "$1";
-        pre_color_filter /home/copin43/personal/Utilities/MyBashScripts/aliases_and_scripts.zsh "$1";
+        pre_color_filter /home/copin43/personal/Utilities/MyBashScripts/config/aliases_and_scripts.zsh "$1";
     } | sort )
     # Apply color after filtering
     echo "\n$combined_aliases" | apply_color
